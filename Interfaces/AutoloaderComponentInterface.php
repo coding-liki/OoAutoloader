@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace  Autoloader\Interfaces;
+namespace  CodingLiki\OoAutoloader\Interfaces;
 
 interface AutoloaderComponentInterface
 {

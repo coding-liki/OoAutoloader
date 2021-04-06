@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Autoloader\Components;
+namespace CodingLiki\OoAutoloader\Components;
 
-use Autoloader\Interfaces\AutoloaderComponentInterface;
+use CodingLiki\OoAutoloader\Interfaces\AutoloaderComponentInterface;
 
 class FromSrcComponent implements AutoloaderComponentInterface
 {

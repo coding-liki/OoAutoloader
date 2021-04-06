@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Autoloader;
+namespace CodingLiki\OoAutoloader;
 
-use Autoloader\Components\FromSrcComponent;
+use CodingLiki\OoAutoloader\Components\FromSrcComponent;
 
 require_once __DIR__ . '/Interfaces/AutoloaderComponentInterface.php';
 $components = ['FromSrcComponent'];
@@ -25,12 +25,12 @@ class Autoloader
         $this->autoloaderComponents = $autoloaderComponents;
     }
 
-    public function init()
+    public function init(): void
     {
         spl_autoload_register([$this, 'load']);
     }
 
-    public function load(string $fullClassName)
+    public function load(string $fullClassName): bool
     {
         foreach ($this->autoloaderComponents as $component) {
             if ($component->load($fullClassName)) {

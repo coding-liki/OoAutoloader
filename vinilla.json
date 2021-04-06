@@ -1,0 +1,7 @@
+{
+  "name": "OoAutoloader",
+  "vendor":"CodingLiki",
+  "description":"Автоматический загрузчик классов для систем основанных на Vinilla Packet Manager, либо на вменяемом наименовании классов и пространств имён. Реализован в виде класса",
+  "version":"0.2",
+  "repo_url":"https://github.com/coding-liki/OoAutoloader.git"
+}
