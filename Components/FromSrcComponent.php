@@ -12,7 +12,7 @@ class FromSrcComponent implements AutoloaderComponentInterface
     {
         $nameParts = explode('\\', $fullClassName);
 
-        $fileName = sprintf("%s/../../../src/%s.php", __DIR__, implode('/', $nameParts));
+        $fileName = sprintf("%s/../../../../src/%s.php", __DIR__, implode('/', $nameParts));
         if (file_exists($fileName)) {
             require_once $fileName;
 
