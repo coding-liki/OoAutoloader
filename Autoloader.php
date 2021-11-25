@@ -8,9 +8,10 @@ use CodingLiki\OoAutoloader\Components\FromRootComponent;
 use CodingLiki\OoAutoloader\Components\FromRootWithoutNamespaceParts;
 use CodingLiki\OoAutoloader\Components\FromVendorComponent;
 use CodingLiki\OoAutoloader\Components\FromVendorWithScrComponent;
+use CodingLiki\OoAutoloader\Components\Psr4ByPrefixAndDirectoryComponent;
 
 require_once __DIR__ . '/Interfaces/AutoloaderComponentInterface.php';
-$components = ['FromSrcComponent', 'FromRootComponent', 'FromRootWithoutNamespaceParts', 'FromVendorComponent', 'FromVendorWithScrComponent'];
+$components = ['FromSrcComponent', 'FromRootComponent', 'FromRootWithoutNamespaceParts', 'FromVendorComponent', 'FromVendorWithScrComponent', 'Psr4ByPrefixAndDirectoryComponent'];
 
 foreach ($components as $component) {
     require_once sprintf("%s/Components/%s.php", __DIR__, $component);
@@ -53,6 +54,7 @@ class Autoloader
         new FromVendorComponent(),
         new FromVendorWithScrComponent(),
         new FromRootComponent(),
-        new FromRootWithoutNamespaceParts()
+        new FromRootWithoutNamespaceParts(),
+        new Psr4ByPrefixAndDirectoryComponent()
     ]
 ))->init();
