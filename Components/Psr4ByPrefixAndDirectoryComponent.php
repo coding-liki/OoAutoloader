@@ -12,16 +12,17 @@ class Psr4ByPrefixAndDirectoryComponent implements AutoloaderComponentInterface
     {
         $prefixes = json_decode(file_get_contents(PrefixesFileGenerator::PREFIXES_FILE_PATCH), true);
 
-        foreach ($prefixes as $prefix => $directory){
+        foreach ($prefixes as $prefix => $directories){
             if(str_starts_with($fullClassName, $prefix)){
-                $fileName = $directory.substr($fullClassName, strlen($prefix)).".php";
-            } else {
-                continue;
-            }
-            if (file_exists($fileName)) {
-                require_once $fileName;
+                foreach ($directories as $directory) {
+                    $fileName = $directory . substr($fullClassName, strlen($prefix)) . ".php";
 
-                return true;
+                    if (file_exists($fileName)) {
+                        require_once $fileName;
+
+                        return true;
+                    }
+                }
             }
         }
 
